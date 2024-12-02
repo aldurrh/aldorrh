@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحبا بكم</title>
+    <style>
+        body {
+            font-family: "changa-one", "Lucida Bright", "DejaVu Serif", Georgia, "serif", sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        /* تنسيق العنوان الأول */
+        .restaurant-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #070778;
+            margin-top: 20px;
+        }
+
+        /* تنسيق السطر الثاني ليكون أصغر */
+        .sub-title {
+            text-align: center;
+            font-size: 16px;
+            color: #070778;
+            margin-top: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 40px;
+        }
+
+        /* تنسيق التقييم */
+        .rating-container {
+            text-align: center;
+        }
+
+        .star-rating {
+            display: inline-block;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .star-rating input:checked ~ label {
+            color: #ffcc00;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #ffcc00;
+        }
+
+        .comment-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .comment-box {
+            width: 80%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* تنسيق الحقول الجديدة مع الاتجاه من اليمين لليسار */
+        .input-section {
+            text-align: right;
+        }
+
+        .input-field {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            direction: rtl; /* إضافة اتجاه الكتابة من اليمين لليسار */
+            text-align: right; /* محاذاة النص إلى اليمين */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- العنوان الأول الكبير -->
+    <div class="restaurant-title">
+        <p>اسمــــاك الــــدرة</p>
+    </div>
+
+    <!-- السطر الثاني الأصغر -->
+    <div class="sub-title">
+        <p>المملكة العربية السعودية</p>
+        <p>مكـــــة - الطـــــائف</p>
+    </div>
+
+    <!-- إضافة حقلي اسم العميل والبريد الإلكتروني -->
+    <div class="input-section">
+        <h1>الرجاء إدخال بياناتك</h1>
+        <label for="customer-name">اسم العميل:</label>
+        <input type="text" id="customer-name" class="input-field" name="customer_name" placeholder="اكتب اسمك هنا" required>
+        <br>
+        <label for="customer-email">البريد الإلكتروني:</label>
+        <input type="email" id="customer-email" class="input-field" name="customer_email" placeholder="اكتب بريدك الإلكتروني هنا" required>
+        <br>
+    </div>
+
+    <!-- التقييمات المترابطة بنفس التنسيق -->
+    <h1>مدى رضاك عن جودة الخدمة</h1>
+    <div class="rating-container">
+        <p>اختر تقييمك:</p>
+        <div class="star-rating">
+            <input type="radio" id="star5_service" name="rating_service" value="5"><label for="star5_service">&#9733;</label>
+            <input type="radio" id="star4_service" name="rating_service" value="4"><label for="star4_service">&#9733;</label>
+            <input type="radio" id="star3_service" name="rating_service" value="3"><label for="star3_service">&#9733;</label>
+            <input type="radio" id="star2_service" name="rating_service" value="2"><label for="star2_service">&#9733;</label>
+            <input type="radio" id="star1_service" name="rating_service" value="1"><label for="star1_service">&#9733;</label>
+        </div>
+    </div>
+
+    <h1>مدى رضاك عن الطعام</h1>
+    <div class="rating-container">
+        <p>اختر تقييمك:</p>
+        <div class="star-rating">
+            <input type="radio" id="star5_food" name="rating_food" value="5"><label for="star5_food">&#9733;</label>
+            <input type="radio" id="star4_food" name="rating_food" value="4"><label for="star4_food">&#9733;</label>
+            <input type="radio" id="star3_food" name="rating_food" value="3"><label for="star3_food">&#9733;</label>
+            <input type="radio" id="star2_food" name="rating_food" value="2"><label for="star2_food">&#9733;</label>
+            <input type="radio" id="star1_food" name="rating_food" value="1"><label for="star1_food">&#9733;</label>
+        </div>
+    </div>
+
+    <h1>مدى رضاك عن النظافة</h1>
+    <div class="rating-container">
+        <p>اختر تقييمك:</p>
+        <div class="star-rating">
+            <input type="radio" id="star5_clean" name="rating_clean" value="5"><label for="star5_clean">&#9733;</label>
+            <input type="radio" id="star4_clean" name="rating_clean" value="4"><label for="star4_clean">&#9733;</label>
+            <input type="radio" id="star3_clean" name="rating_clean" value="3"><label for="star3_clean">&#9733;</label>
+            <input type="radio" id="star2_clean" name="rating_clean" value="2"><label for="star2_clean">&#9733;</label>
+            <input type="radio" id="star1_clean" name="rating_clean" value="1"><label for="star1_clean">&#9733;</label>
+        </div>
+    </div>
+
+    <h1>مدى رضاك عن خدمة الغرف</h1>
+    <div class="rating-container">
+        <p>اختر تقييمك:</p>
+        <div class="star-rating">
+            <input type="radio" id="star5_room_service" name="rating_room_service" value="5"><label for="star5_room_service">&#9733;</label>
+            <input type="radio" id="star4_room_service" name="rating_room_service" value="4"><label for="star4_room_service">&#9733;</label>
+            <input type="radio" id="star3_room_service" name="rating_room_service" value="3"><label for="star3_room_service">&#9733;</label>
+            <input type="radio" id="star2_room_service" name="rating_room_service" value="2"><label for="star2_room_service">&#9733;</label>
+            <input type="radio" id="star1_room_service" name="rating_room_service" value="1"><label for="star1_room_service">&#9733;</label>
+        </div>
+    </div>
+
+    <h1>مدى رضاك عن المظهر الخارجي</h1>
+    <div class="rating-container">
+        <p>اختر تقييمك:</p>
+        <div class="star-rating">
+            <input type="radio" id="star5_outlook" name="rating_outlook" value="5"><label for="star5_outlook">&#9733;</label>
+            <input type="radio" id="star4_outlook" name="rating_outlook" value="4"><label for="star4_outlook">&#9733;</label>
+            <input type="radio" id="star3_outlook" name="rating_outlook" value="3"><label for="star3_outlook">&#9733;</label>
+            <input type="radio" id="star2_outlook" name="rating_outlook" value="2"><label for="star2_outlook">&#9733;</label>
+            <input type="radio" id="star1_outlook" name="rating_outlook" value="1"><label for="star1_outlook">&#9733;</label>
+        </div>
+    </div>
+
+    <h1>تقييمك لمقدم الخدمة وحل المشكلة</h1>
+    <div class="rating-container">
+        <p>اختر تقييمك:</p>
+        <div class="star-rating">
+            <input type="radio" id="star5_service_provider" name="rating_service_provider" value="5"><label for="star5_service_provider">&#9733;</label>
+            <input type="radio" id="star4_service_provider" name="rating_service_provider" value="4"><label for="star4_service_provider">&#9733;</label>
+            <input type="radio" id="star3_service_provider" name="rating_service_provider" value="3"><label for="star3_service_provider">&#9733;</label>
+            <input type="radio" id="star2_service_provider" name="rating_service_provider" value="2"><label for="star2_service_provider">&#9733;</label>
+            <input type="radio" id="star1_service_provider" name="rating_service_provider" value="1"><label for="star1_service_provider">&#9733;</label>
+        </div>
+    </div>
+
+    <!-- تعليق -->
+    <div class="comment-section">
+        <label for="comment">تعليقك:</label>
+        <textarea id="comment" class="comment-box" name="comment" placeholder="اكتب تعليقك هنا..."></textarea>
+        <br>
+        <button type="submit" class="submit-btn">إرسال التقييم</button>
+    </div>
+
+</body>
+</html>
