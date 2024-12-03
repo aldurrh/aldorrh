@@ -216,4 +216,60 @@
     </div>
 
 </body>
+</html><script>
+        document.querySelector(".submit-btn").addEventListener("click", function(event) {
+            event.preventDefault();  // منع إرسال النموذج لتتمكن من التعامل مع البيانات أولاً
+
+            // جمع البيانات المدخلة
+            let customerName = document.getElementById("customer-name").value;
+            let customerEmail = document.getElementById("customer-email").value;
+            let comment = document.getElementById("comment").value;
+
+            // التحقق من أن جميع الحقول الأساسية تم ملؤها
+            if (!customerName || !customerEmail || !comment) {
+                alert("من فضلك أكمل جميع الحقول المطلوبة.");
+                return;  // إيقاف إرسال التقييم إذا كانت الحقول غير مكتملة
+            }
+
+            // جمع تقييمات النجوم
+            let ratingService = document.querySelector('input[name="rating_service"]:checked')?.value;
+
+            // إذا كانت أي من التقييمات غير مختارة، يمكن تعيين قيمة افتراضية أو تحذير
+            if (!ratingService) {
+                alert("من فضلك اختر تقييمًا لجودة الخدمة.");
+                return;
+            }
+
+            // طباعة البيانات في وحدة التحكم (يمكنك إرسالها إلى الخادم هنا)
+            console.log({
+                customerName,
+                customerEmail,
+                ratingService,
+                comment
+            });
+
+            // يمكنك هنا إرسال البيانات إلى الخادم عبر AJAX أو باستخدام fetch (كما في المثال التالي)
+            /*
+            fetch('/submit_review', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    customerName,
+                    customerEmail,
+                    ratingService,
+                    comment
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('تم إرسال التقييم بنجاح:', data))
+            .catch(error => console.error('حدث خطأ:', error));
+            */
+
+            alert("تم إرسال التقييم بنجاح! شكراً لملاحظاتك.");
+        });
+    </script>
+
+</body>
 </html>
