@@ -1,2 +1,0 @@
-# اسماك الدرة
-Restaurant Rating
