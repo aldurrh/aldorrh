@@ -273,3 +273,173 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحبا بكم</title>
+    <style>
+        /* تنسيقات الصفحة */
+        body {
+            font-family: "changa-one", "Lucida Bright", "DejaVu Serif", Georgia, "serif", sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        /* تنسيق العنوان الأول */
+        .restaurant-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #070778;
+            margin-top: 20px;
+        }
+
+        /* تنسيق السطر الثاني ليكون أصغر */
+        .sub-title {
+            text-align: center;
+            font-size: 16px;
+            color: #070778;
+            margin-top: 10px;
+        }
+
+        /* زر الإرسال */
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* تنسيقات خاصة بالمربع الجديد */
+        .comments-container {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .comment-box {
+            width: 80%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-like {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .btn-like:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-share {
+            background-color: #FF9800;
+            color: white;
+        }
+
+        .btn-share:hover {
+            background-color: #e68900;
+        }
+
+        .comment-list {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .comment {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- العنوان الأول الكبير -->
+    <div class="restaurant-title">
+        <p>اسمــــاك الــــدرة</p>
+    </div>
+
+    <!-- السطر الثاني الأصغر -->
+    <div class="sub-title">
+        <p>المملكة العربية السعودية</p>
+        <p>مكـــــة - الطـــــائف</p>
+    </div>
+
+    <!-- باقي الصفحة كما هي... -->
+
+    <!-- قسم التعليقات وأزرار التفاعل -->
+    <div class="comments-container">
+        <h2>شارك برأيك</h2>
+        <textarea id="commentBox" class="comment-box" placeholder="اكتب تعليقك هنا..."></textarea><br>
+        <button id="submitComment" class="submit-btn">إرسال</button>
+        <button id="likeButton" class="btn btn-like">👍 أعجبني <span id="likeCount">0</span></button>
+        <button id="shareButton" class="btn btn-share">🔗 مشاركة</button>
+
+        <div id="commentsSection" class="comment-list">
+            <h3>التعليقات:</h3>
+            <!-- التعليقات ستُضاف هنا ديناميكيًا -->
+        </div>
+    </div>
+
+    <script>
+        // التعامل مع زر الإعجاب
+        let likeCount = 0;
+        document.getElementById("likeButton").addEventListener("click", function() {
+            likeCount++;
+            document.getElementById("likeCount").textContent = likeCount;
+        });
+
+        // التعامل مع زر المشاركة
+        document.getElementById("shareButton").addEventListener("click", function() {
+            alert("تم نسخ الرابط! يمكنك الآن مشاركته.");
+        });
+
+        // إضافة تعليق
+        document.getElementById("submitComment").addEventListener("click", function() {
+            const commentBox = document.getElementById("commentBox");
+            const commentsSection = document.getElementById("commentsSection");
+
+            if (commentBox.value.trim() !== "") {
+                const comment = document.createElement("div");
+                comment.className = "comment";
+                comment.textContent = commentBox.value;
+                commentsSection.appendChild(comment);
+                commentBox.value = ""; // إعادة تعيين النص
+            } else {
+                alert("يرجى كتابة تعليق قبل الإرسال.");
+            }
+        });
+    </script>
+</body>
+</html>
+
